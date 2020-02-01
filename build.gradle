@@ -1,0 +1,38 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.61'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+group 'tech.richardson'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { setUrl("https://dl.bintray.com/hotkeytlt/maven") }
+    jcenter()
+    mavenLocal()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.web3j.sokt:sokt:1.0-SNAPSHOT"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+jar {
+    from {
+        configurations.compile
+                .collect {
+                    it.isDirectory() ? it : zipTree(it)
+                }
+    }
+    manifest {
+        attributes 'Main-Class': 'tech.richardson.svm.MainKt'
+    }
+}
