@@ -24,6 +24,7 @@ class SettingsManager {
         }
 
         fun saveSettings(settings: Settings) {
+            settingsFile.parentFile.mkdirs()
             settingsFile.writeText(Json(JsonConfiguration.Stable).stringify(Settings.serializer(), settings))
         }
     }
