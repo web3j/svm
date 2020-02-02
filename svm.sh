@@ -10,3 +10,10 @@ svm() {
     echo "$output"
   fi
 }
+
+setup() {
+  output=$(java -jar ./build/libs/svm-1.0-SNAPSHOT-all.jar setup)
+  eval "$output"
+}
+
+setup
