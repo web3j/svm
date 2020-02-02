@@ -4,14 +4,14 @@ import tech.richardson.svm.Command
 import tech.richardson.svm.Constants
 
 class Ls : Command {
-    override fun matches(arg: String): Boolean {
-        return arg.trim() == "ls"
+    override fun matches(arg: String, len: Int): Boolean {
+        return arg == "ls" && len == 0
     }
 
-    override fun execute(args: List<String>) {
+    override fun execute(args: List<String>): String {
         Constants.SOLC_INSTALL_DIR.walk().filter { it.isDirectory }.drop(1).forEach {
-            println(it)
+            println(it.name)
         }
+        return "The command completed successfully."
     }
-
 }

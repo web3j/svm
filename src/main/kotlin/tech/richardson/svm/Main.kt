@@ -1,17 +1,25 @@
 package tech.richardson.svm
 
+import kotlin.system.exitProcess
 import tech.richardson.svm.commands.Install
 import tech.richardson.svm.commands.Ls
 import tech.richardson.svm.commands.LsRemote
-import kotlin.system.exitProcess
+import tech.richardson.svm.commands.Uninstall
+import tech.richardson.svm.commands.Use
 
 fun main(vararg args: String) {
     if (args.isEmpty()) {
-        exitProcess(1);
+        println(Constants.USAGE)
+        exitProcess(1)
     }
 
-    val commands = arrayListOf(LsRemote(), Ls(), Install())
+    val commands = arrayListOf(LsRemote(), Ls(), Install(), Uninstall(), Use())
 
-    commands.firstOrNull { it.matches(args.first()) }?.execute(args.drop(1))
-
+    val result = commands.firstOrNull { it.matches(args.first().toLowerCase().trim(), args.drop(1).size) }?.execute(args.drop(1))
+    if (result != null) {
+        println(result)
+    } else {
+        println("Invalid command. Available commands are as follows:")
+        println(Constants.USAGE)
+    }
 }

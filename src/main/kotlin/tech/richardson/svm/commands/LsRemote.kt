@@ -1,15 +1,15 @@
 package tech.richardson.svm.commands
 
-import tech.richardson.svm.Command
 import org.web3j.sokt.VersionResolver
+import tech.richardson.svm.Command
 
 class LsRemote : Command {
-    override fun matches(arg: String): Boolean {
-        return arg.trim() == "ls-remote"
+    override fun matches(arg: String, len: Int): Boolean {
+        return arg == "ls-remote" && len == 0
     }
 
-    override fun execute(args: List<String>) {
-        val resolver = VersionResolver()
-        resolver.getSolcReleases().filter { it.isCompatibleWithOs() }.map { it.version }.forEach { println(it) }
+    override fun execute(args: List<String>): String {
+        VersionResolver().getSolcReleases().filter { it.isCompatibleWithOs() }.map { it.version }.forEach { println(it) }
+        return "The command completed successfully"
     }
 }

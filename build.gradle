@@ -1,6 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.61'
     id 'com.github.johnrengelman.shadow' version '5.2.0'
+    id 'com.diffplug.gradle.spotless' version '3.26.0'
 }
 
 group 'tech.richardson'
@@ -34,5 +35,19 @@ jar {
     }
     manifest {
         attributes 'Main-Class': 'tech.richardson.svm.MainKt'
+    }
+}
+
+spotless {
+    kotlin {
+        target fileTree('.') {
+            include '**/*.kt'
+            exclude '**/.gradle/**'
+        }
+
+        ktlint()
+        trimTrailingWhitespace()
+        endWithNewline()
+
     }
 }

@@ -2,7 +2,7 @@ package tech.richardson.svm
 
 interface Command {
 
-    fun matches(arg: String): Boolean
+    fun matches(arg: String, len: Int): Boolean
 
-    fun execute(args: List<String>)
+    fun execute(args: List<String>): String
 }
