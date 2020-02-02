@@ -1,4 +1,4 @@
-package tech.richardson.svm
+package tech.richardson.svm.commands
 
 interface Command {
 

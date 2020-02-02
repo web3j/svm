@@ -1,8 +1,20 @@
+buildscript {
+    ext.kotlin_version = '1.3.61'
+    repositories { jcenter() }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+    }
+}
+
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.61'
     id 'com.github.johnrengelman.shadow' version '5.2.0'
     id 'com.diffplug.gradle.spotless' version '3.26.0'
 }
+apply plugin: 'kotlinx-serialization'
+
 
 group 'tech.richardson'
 version '1.0-SNAPSHOT'
@@ -15,8 +27,10 @@ repositories {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "org.web3j.sokt:sokt:1.0-SNAPSHOT"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+            "org.web3j.sokt:web3j-sokt:1.0-SNAPSHOT",
+            "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0"
+
 }
 
 compileKotlin {

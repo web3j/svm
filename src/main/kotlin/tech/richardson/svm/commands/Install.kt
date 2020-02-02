@@ -2,10 +2,10 @@ package tech.richardson.svm.commands
 
 import org.web3j.sokt.SolcInstance
 import org.web3j.sokt.VersionResolver
-import tech.richardson.svm.Command
 import tech.richardson.svm.Constants
+import tech.richardson.svm.settings.Settings
 
-class Install : Command {
+class Install(private val settings: Settings) : Command {
     override fun matches(arg: String, len: Int): Boolean {
         return arg == "install" && len == 1
     }
@@ -17,6 +17,7 @@ class Install : Command {
             val instance = SolcInstance(it, Constants.SVM_PATH)
             return if (!instance.installed()) {
                 if (instance.install()) {
+                    settings.lastUsed = instance.solcRelease.version
                     "Version ${it.version} installed successfully."
                 } else {
                     "The installation failed to complete successfully."

@@ -1,6 +1,5 @@
 package tech.richardson.svm.commands
 
-import tech.richardson.svm.Command
 import tech.richardson.svm.Constants
 
 class Ls : Command {

@@ -2,17 +2,20 @@ package tech.richardson.svm.commands
 
 import org.web3j.sokt.SolcInstance
 import org.web3j.sokt.SolcRelease
-import tech.richardson.svm.Command
 import tech.richardson.svm.Constants
+import tech.richardson.svm.settings.Settings
 
-class Alias : Command {
+class Alias(private var settings: Settings) : Command {
     override fun matches(arg: String, len: Int): Boolean {
         return arg == "alias" && len == 2
     }
 
     override fun execute(args: List<String>): String {
-        val instance = SolcInstance(SolcRelease(args.first().trim()), Constants.SVM_PATH)
-
+        val instance = SolcInstance(SolcRelease(args[1].trim()), Constants.SVM_PATH)
+        if (instance.installed()) {
+            settings.aliases[args[0].trim()] = instance.solcRelease.version
+            return "Alias added successfully."
+        }
         return "The version ${instance.solcRelease.version} is not installed."
     }
 }

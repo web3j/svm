@@ -1,7 +1,6 @@
 package tech.richardson.svm.commands
 
 import org.web3j.sokt.VersionResolver
-import tech.richardson.svm.Command
 
 class LsRemote : Command {
     override fun matches(arg: String, len: Int): Boolean {

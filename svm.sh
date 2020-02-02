@@ -1,21 +1,10 @@
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
-
 svm() {
-  output=$(java -jar ./build/libs/svm-1.0-SNAPSHOT-all.jar "$@")
-
-
-  if beginswith "export" "$output"; then
-    eval "$output"
-  else
-    echo "$output"
-  fi
+  temporaryFile=$(mktemp /tmp/svm-eval.XXXXXX)
+  TEMPFILE=$temporaryFile java -jar ./build/libs/svm-1.0-SNAPSHOT-all.jar "$@"
+  local exit_code=$?
+  eval "$(cat "$temporaryFile")"
+  rm -f "$temporaryFile"
+  return ${exit_code}
 }
 
-setup() {
-  output=$(java -jar ./build/libs/svm-1.0-SNAPSHOT-all.jar setup)
-  eval "$output"
-}
-
-setup
-
-# native-image -cp svm-1.0-SNAPSHOT.jar  tech.richardson.svm.MainKt --no-fallback
+svm setup 1>/dev/null

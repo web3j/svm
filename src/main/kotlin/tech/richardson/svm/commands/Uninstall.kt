@@ -2,7 +2,6 @@ package tech.richardson.svm.commands
 
 import org.web3j.sokt.SolcInstance
 import org.web3j.sokt.SolcRelease
-import tech.richardson.svm.Command
 import tech.richardson.svm.Constants
 
 class Uninstall : Command {
@@ -19,7 +18,7 @@ class Uninstall : Command {
                     "The uninstall operation failed"
                 }
             } else {
-                "Version ${instance.solcRelease.version} is not installed."
+                "The version ${instance.solcRelease.version} is not installed."
             }
     }
 }
