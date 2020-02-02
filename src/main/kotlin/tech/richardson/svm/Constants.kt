@@ -15,7 +15,7 @@ class Constants {
 
             Available Commands:
               install <version>         Download and install Solidity
-              uninstall <version>       Uninstall Solidity
+              uninstall <version>         Uninstall Solidity
               use <version>             Modify PATH to use specific Solidity version
               current                   Display currently 'use'ed version
               ls                        List installed versions

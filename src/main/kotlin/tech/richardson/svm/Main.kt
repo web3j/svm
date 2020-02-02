@@ -1,7 +1,7 @@
 package tech.richardson.svm
 
-import tech.richardson.svm.commands.Alias
 import kotlin.system.exitProcess
+import tech.richardson.svm.commands.Alias
 import tech.richardson.svm.commands.Install
 import tech.richardson.svm.commands.Ls
 import tech.richardson.svm.commands.LsRemote

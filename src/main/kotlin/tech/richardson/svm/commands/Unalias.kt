@@ -1,7 +1,5 @@
 package tech.richardson.svm.commands
 
-import java.io.File
-import java.nio.file.Paths
 import org.web3j.sokt.SolcInstance
 import org.web3j.sokt.SolcRelease
 import tech.richardson.svm.Command

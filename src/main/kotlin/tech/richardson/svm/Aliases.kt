@@ -18,9 +18,9 @@ class Aliases {
     fun removeAlias(alias: String): Boolean {
         return if (prefs.get("alias_$alias", null) != null) {
             prefs.remove("alias_$alias")
-            true;
+            true
         } else {
-            false;
+            false
         }
     }
 }

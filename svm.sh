@@ -17,3 +17,5 @@ setup() {
 }
 
 setup
+
+# native-image -cp svm-1.0-SNAPSHOT.jar  tech.richardson.svm.MainKt --no-fallback
