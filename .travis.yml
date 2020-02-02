@@ -1,0 +1,8 @@
+language: shell
+
+os:
+  - linux
+#  - osx
+
+script:
+  - ./src/test/bash/test_svm.sh

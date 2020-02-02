@@ -15,13 +15,14 @@ class Constants {
 
             Available Commands:
               install <version>         Download and install Solidity
-              uninstall <version>         Uninstall Solidity
+              uninstall <version>       Uninstall Solidity
               use <version>             Modify PATH to use specific Solidity version
               current                   Display currently 'use'ed version
               ls                        List installed versions
               ls-remote                 List remote versions available for install
               alias <name> <version>    Resolve or update an alias
               unalias <name>            Delete an alias
+              deactivate                Deactivates svm in the current shell
         """.trimIndent()
     }
 }
