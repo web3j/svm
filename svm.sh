@@ -1,6 +1,6 @@
 svm() {
   temporaryFile=$(mktemp /tmp/svm-eval.XXXXXX)
-  TEMPFILE=$temporaryFile ./build/libs/tech.richardson.svm.mainkt "$@"
+  TEMPFILE=$temporaryFile ~/.svm/svm "$@"
   local exit_code=$?
   eval "$(cat "$temporaryFile")"
   rm -f "$temporaryFile"
