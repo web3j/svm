@@ -6,7 +6,7 @@ gu install native-image
 
 ls
 ./generate_native_image.sh
-source ./svm.sh
+source ./svm_dev.sh
 svm ls-remote
 svm install 0.5.11
 svm use 0.5.11
