@@ -8,10 +8,10 @@ install_svm() {
 
   case "$OSTYPE" in
     darwin*)
-    BINARY_URL=https://github.com/josh-richardson/svm/releases/download/v${svm_version}/svm-${svm_version}-darwin.tar
+    BINARY_URL=https://github.com/josh-richardson/svm/releases/download/${svm_version}/svm-darwin.tar
     ;;
     linux*)
-    BINARY_URL=https://github.com/josh-richardson/svm/releases/download/v${svm_version}/svm-${svm_version}-linux.tar
+    BINARY_URL=https://github.com/josh-richardson/svm/releases/download/${svm_version}/svm-linux.tar
     ;;
     *)
     echo "Unsupported Operating System"
@@ -19,12 +19,13 @@ install_svm() {
     ;;
   esac
 
-  if [ "$(curl --write-out "%{http_code}" --silent --output /dev/null "https://github.com/josh-richardson/svm/releases/download/v${svm_version}/svm-${svm_version}.tar")" -eq 302 ]; then
-    curl -# -L -o "$HOME/.svm/svm-${svm_version}.tar" "https://github.com/josh-richardson/svm/releases/download/v${svm_version}/svm-${svm_version}.tar"
+  echo $BINARY_URL
+  if [ "$(curl --write-out "%{http_code}" --silent --output /dev/null "$BINARY_URL")" -eq 302 ]; then
+    curl -# -L -o "$HOME/.svm/svm.tar" "$BINARY_URL"
     echo "Installing svm..."
-    tar -xf "$HOME/.svm/svm-${svm_version}.tar" -C "$HOME/.svm"
+    tar -xf "$HOME/.svm/svm.tar" -C "$HOME/.svm"
     echo "Removing downloaded archive..."
-    rm "$HOME/.svm/svm-${svm_version}.tar"
+    rm "$HOME/.svm/svm.tar"
   else
     echo "Looks like there was an error while trying to download svm"
     exit 0
@@ -32,4 +33,60 @@ install_svm() {
 }
 
 
+source_svm() {
+  SOURCE_WEB3J="\n[ -s \"$HOME/.svm/svm.sh\" ] && source \"$HOME/.svm/svm.sh\""
+  if [ -f "$HOME/.bashrc" ]; then
+    bash_rc="$HOME/.bashrc"
+    touch "${bash_rc}"
+    if ! grep -qc '.svm/svm.sh' "${bash_rc}"; then
+      echo "Adding source string to ${bash_rc}"
+      printf "${SOURCE_WEB3J}\n" >>"${bash_rc}"
+    else
+      echo "Skipped update of ${bash_rc} (source string already present)"
+    fi
+  fi
+  if [ -f "$HOME/.bash_profile" ]; then
+    bash_profile="${HOME}/.bash_profile"
+    touch "${bash_profile}"
+    if ! grep -qc '.svm/svm.sh' "${bash_profile}"; then
+      echo "Adding source string to ${bash_profile}"
+      printf "${SOURCE_WEB3J}\n" >>"${bash_profile}"
+    else
+      echo "Skipped update of ${bash_profile} (source string already present)"
+    fi
+  fi
+  if [ -f "$HOME/.bash_login" ]; then
+    bash_login="$HOME/.bash_login"
+    touch "${bash_login}"
+    if ! grep -qc '.svm/svm.sh' "${bash_login}"; then
+      echo "Adding source string to ${bash_login}"
+      printf "${SOURCE_WEB3J}\n" >>"${bash_login}"
+    else
+      echo "Skipped update of ${bash_login} (source string already present)"
+    fi
+  fi
+  if [ -f "$HOME/.profile" ]; then
+    profile="$HOME/.profile"
+    touch "${profile}"
+    if ! grep -qc '.svm/svm.sh' "${profile}"; then
+      echo "Adding source string to ${profile}"
+      printf "$SOURCE_WEB3J\n" >>"${profile}"
+    else
+      echo "Skipped update of ${profile} (source string already present)"
+    fi
+  fi
+
+  if [ -f "$(command -v zsh 2>/dev/null)" ]; then
+    file="$HOME/.zshrc"
+    touch "${file}"
+    if ! grep -qc '.svm/svm.sh' "${file}"; then
+      echo "Adding source string to ${file}"
+      printf "$SOURCE_WEB3J\n" >>"${file}"
+    else
+      echo "Skipped update of ${file} (source string already present)"
+    fi
+  fi
+}
+
 install_svm
+source_svm
