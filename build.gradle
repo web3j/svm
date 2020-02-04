@@ -28,9 +28,8 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
-            "org.web3j.sokt:web3j-sokt:1.0-SNAPSHOT",
+            'org.web3j:web3j-sokt:0.1.0',
             "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0"
-
 }
 
 compileKotlin {

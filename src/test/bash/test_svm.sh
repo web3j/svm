@@ -12,4 +12,4 @@ svm install 0.5.11
 svm use 0.5.11
 solc --version
 
-exit 1
+exit 0

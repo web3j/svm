@@ -2,7 +2,7 @@ package tech.richardson.svm.commands
 
 import tech.richardson.svm.settings.Settings
 
-class Unalias(val settings: Settings) : Command {
+class Unalias(private val settings: Settings) : Command {
     override fun matches(arg: String, len: Int): Boolean {
         return arg == "unalias" && len == 1
     }

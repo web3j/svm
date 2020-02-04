@@ -24,5 +24,9 @@ class Constants {
               unalias <name>            Delete an alias
               deactivate                Deactivates svm in the current shell
         """.trimIndent()
+
+        private val EXISTING_PATH_FRAGMENT = Paths.get(SVM_PATH, "solc").toString() + File.separator
+
+        val PATH_MATCH_REGEX = Regex(".*.$EXISTING_PATH_FRAGMENT(\\d|.)*")
     }
 }
