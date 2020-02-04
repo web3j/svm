@@ -1,4 +1,4 @@
-svm_version="0.1.0"
+svm_version="0.1.1"
 
 install_svm() {
 

@@ -2,7 +2,7 @@
 
 Solidity Version Manager inspired by nvm & jabba. Written in Kotlin & Java, but available with no dependencies as a native image thanks to GraalVM.
 
-Allows for you to easily install & switch between different versions of the Solidity compiler (solc) from the Terminal. Supports Linux and macOS, Windows support coming soon.
+Allows for you to easily install & switch between different versions of the Solidity compiler (solc) from the Terminal. Supports Linux and macOS, Windows support coming soon. Unlike other version managers for Solidity, svm is not a wrapper, has no dependencies, and is able to download native images to run directly on Linux, macOS and Windows, without any extra compilation required.
 
 ### Installation:
 Linux & macOS:
