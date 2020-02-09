@@ -25,8 +25,11 @@ class Constants {
               deactivate                Deactivates svm in the current shell
         """.trimIndent()
 
-        private val EXISTING_PATH_FRAGMENT = Paths.get(SVM_PATH, "solc").toString() + File.separator
+        private val EXISTING_PATH_FRAGMENT = (Paths.get(SVM_PATH, "solc").toString() + File.separator).replace("\\", "\\\\")
 
         val PATH_MATCH_REGEX = Regex(".*.$EXISTING_PATH_FRAGMENT(\\d|.)*")
+
+        val TEMP_FILE = System.getenv("TEMPFILE")?.let { File(it) }
+
     }
 }

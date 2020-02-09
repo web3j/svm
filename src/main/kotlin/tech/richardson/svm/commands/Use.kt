@@ -5,6 +5,7 @@ import org.web3j.sokt.SolcInstance
 import org.web3j.sokt.SolcRelease
 import tech.richardson.svm.Constants
 import tech.richardson.svm.settings.Settings
+import kotlin.system.exitProcess
 
 class Use(private val settings: Settings) : Command {
     override fun matches(arg: String, len: Int): Boolean {
@@ -18,8 +19,18 @@ class Use(private val settings: Settings) : Command {
             settings.lastUsed = versionToUse
             val instanceDirectoryName = instance.solcFile.parent
 
-            val path = instanceDirectoryName + ":" + System.getenv("PATH").split(":").filter { !it.matches(Constants.PATH_MATCH_REGEX) }.joinToString(":")
-            File(System.getenv("TEMPFILE")).writeText("export PATH=$path")
+            val path = "export PATH=$instanceDirectoryName" + File.pathSeparator + System.getenv("PATH").split(File.pathSeparator)
+                .filter { !it.matches(Constants.PATH_MATCH_REGEX) }.joinToString(File.pathSeparator)
+            if (Constants.TEMP_FILE?.exists() == true) {
+                Constants.TEMP_FILE.writeText(path)
+            } else {
+
+                println("Attempted to use a solidity version but did not receive a temporary file to write to. " +
+                        "Invocation of sokt should occur from the command-line wrapper function rather than by directly invoking the executable.")
+                println("The following should be exported: $path")
+                exitProcess(1)
+            }
+
             return "Version ${instance.solcRelease.version} activated."
         }
 

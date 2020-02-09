@@ -9,7 +9,7 @@ class Deactivate : Command {
     }
 
     override fun execute(args: List<String>): String {
-        val path = System.getenv("PATH").split(":").filter { !it.matches(Constants.PATH_MATCH_REGEX) }.joinToString(":")
+        val path = System.getenv("PATH").split(File.pathSeparator).filter { !it.matches(Constants.PATH_MATCH_REGEX) }.joinToString(File.pathSeparator)
         File(System.getenv("TEMPFILE")).writeText("export PATH=$path")
         return "svm has been decativated."
     }
