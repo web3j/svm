@@ -1,11 +1,11 @@
 package tech.richardson.svm.commands
 
 import java.io.File
+import kotlin.system.exitProcess
 import org.web3j.sokt.SolcInstance
 import org.web3j.sokt.SolcRelease
 import tech.richardson.svm.Constants
 import tech.richardson.svm.settings.Settings
-import kotlin.system.exitProcess
 
 class Use(private val settings: Settings) : Command {
     override fun matches(arg: String, len: Int): Boolean {

@@ -30,6 +30,5 @@ class Constants {
         val PATH_MATCH_REGEX = Regex(".*.$EXISTING_PATH_FRAGMENT(\\d|.)*")
 
         val TEMP_FILE = System.getenv("TEMPFILE")?.let { File(it) }
-
     }
 }

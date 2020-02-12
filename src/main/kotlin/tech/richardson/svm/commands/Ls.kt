@@ -1,8 +1,8 @@
 package tech.richardson.svm.commands
 
+import java.io.File
 import java.nio.file.Paths
 import tech.richardson.svm.Constants
-import java.io.File
 
 class Ls : Command {
     override fun matches(arg: String, len: Int): Boolean {

@@ -1,11 +1,12 @@
 Function svm {
   $temporaryFile=New-TemporaryFile
-  $env:TEMPFILE=$temporaryFile; java -jar build/libs/svm-1.0-SNAPSHOT-all.jar $args
-  $exit_code=$?
+  $env:TEMPFILE=$temporaryFile; java -jar $env:USERPROFILE\.svm\svm-1.0-SNAPSHOT-all.jar $args
   Remove-Item Env:\TEMPFILE
   $result = Get-Content "$temporaryFile"
-  Invoke-Expression $result
-  return ${exit_code}
+  if ($result) {
+    $result = $result.replace("export PATH=", "`$env:PATH=`"") + "`""
+    Invoke-Expression $result
+  }
 }
 
 svm setup | Out-Null
