@@ -19,8 +19,6 @@ if (-not $(Test-Path $profile))
   New-Item -path $profile -type file -force | Out-Null
 }
 
-svm setup | Out-Null
-
 if ("$(Get-Content $profile | Select-String "\\svm.ps1")" -eq "")
 {
   Write-Host "Adding source string to $profile"
@@ -32,6 +30,8 @@ else
 }
 
 . "$svm_home\svm.ps1"
+
+svm setup | Out-Null
 
 Write-Host ""
 Write-Host "Installation completed"
