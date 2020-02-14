@@ -2,7 +2,7 @@
 
 Solidity Version Manager inspired by nvm & jabba. Written in Kotlin & Java, but available with no dependencies as a native image thanks to GraalVM.
 
-Allows for you to easily install & switch between different versions of the Solidity compiler (solc) from the Terminal. Supports Linux and macOS, Windows support coming soon. Unlike other version managers for Solidity, svm is not a wrapper, has no dependencies, and is able to download native images to run directly on Linux, macOS and Windows, without any extra compilation required.
+Allows for you to easily install & switch between different versions of the Solidity compiler (solc) from the Terminal. Supports Linux and macOS, and Windows. Unlike other version managers for Solidity, svm has no dependencies, and is able to download native images to run directly on on all supported platforms, without any extra compilation required.
 
 ### Installation:
 Linux & macOS:
@@ -12,9 +12,16 @@ curl -L https://github.com/josh-richardson/svm/raw/master/install.sh | bash && s
 
 Windows:
 ```
-coming soon :)
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-Expression (
+  Invoke-WebRequest https://github.com/josh-richardson/svm/raw/master/install.ps1 -UseBasicParsing
+).Content
 ```
 
+Note that on Windows, Java 11 is required as GraalVM cannot compile complex native images for Windows targets. The Powershell execution policy must also be set at such a level as to allow the powershell profile to execute successfully, and svm will not work in a vanilla command prompt (cmd.exe).
+
+### Executables
+Executables used by svm are downloaded using TLS, and are served directly from the Solidity Github [releases page](https://github.com/ethereum/solidity/releases) for Windows and Linux. Unfortunately native images are not supplied for macOS, so they are downloaded from [this repository](https://github.com/web3j/solidity-darwin-binaries/releases).
 
 ### Usage:
 ```
