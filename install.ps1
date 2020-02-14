@@ -20,7 +20,7 @@ if (-not $(Test-Path $profile))
 }
 
 svm setup | Out-Null
- No newline at end of file
+
 if ("$(Get-Content $profile | Select-String "\\svm.ps1")" -eq "")
 {
   Write-Host "Adding source string to $profile"
