@@ -6,9 +6,9 @@ $ProgressPreference = 'SilentlyContinue'
 
 $svm_version="0.1.2"
 $svm_home="$env:USERPROFILE\.svm"
-#New-Item -Force -ItemType directory -Path $svm_home | Out-Null
-#Write-Host "Downloading svm version $svm_version"
-#Invoke-WebRequest https://github.com/josh-richardson/svm/releases/download/${svm_version}/svm-windows.zip -UseBasicParsing -OutFile $svm_home\svm.zip
+New-Item -Force -ItemType directory -Path $svm_home | Out-Null
+Write-Host "Downloading svm version $svm_version"
+Invoke-WebRequest https://github.com/josh-richardson/svm/releases/download/${svm_version}/svm-windows.zip -UseBasicParsing -OutFile $svm_home\svm.zip
 Write-Host "Extracting svm version $svm_version"
 Expand-Archive -Path "${env:USERPROFILE}\.svm\svm.zip" -DestinationPath $svm_home -Force
 
