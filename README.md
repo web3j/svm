@@ -24,6 +24,10 @@ Note that on Windows, Java 11 is required as GraalVM cannot compile complex nati
 Executables used by svm are downloaded using TLS, and are served directly from the Solidity Github [releases page](https://github.com/ethereum/solidity/releases) for Windows and Linux. Unfortunately native images are not supplied for macOS, so they are downloaded from [this repository](https://github.com/web3j/solidity-darwin-binaries/releases).
 
 ### Usage:
+#### Demo:
+![svm in use webm](https://i.imgur.com/TcQpSlu.gif)
+
+#### Available commands:
 ```
 Solidity Version Manager (https://github.com/josh-richardson/svm).
 
