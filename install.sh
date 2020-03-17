@@ -8,10 +8,10 @@ install_svm() {
 
   case "$OSTYPE" in
     darwin*)
-    BINARY_URL=https://github.com/josh-richardson/svm/releases/download/${svm_version}/svm-darwin.tar
+    BINARY_URL=https://github.com/web3j/svm/releases/download/${svm_version}/svm-darwin.tar
     ;;
     linux*)
-    BINARY_URL=https://github.com/josh-richardson/svm/releases/download/${svm_version}/svm-linux.tar
+    BINARY_URL=https://github.com/web3j/svm/releases/download/${svm_version}/svm-linux.tar
     ;;
     *)
     echo "Unsupported Operating System"

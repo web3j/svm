@@ -1,17 +1,17 @@
-package tech.richardson.svm
+package org.web3j.svm
 
 import kotlin.system.exitProcess
-import tech.richardson.svm.commands.Alias
-import tech.richardson.svm.commands.Current
-import tech.richardson.svm.commands.Deactivate
-import tech.richardson.svm.commands.Install
-import tech.richardson.svm.commands.Ls
-import tech.richardson.svm.commands.LsRemote
-import tech.richardson.svm.commands.Setup
-import tech.richardson.svm.commands.Unalias
-import tech.richardson.svm.commands.Uninstall
-import tech.richardson.svm.commands.Use
-import tech.richardson.svm.settings.SettingsManager
+import org.web3j.svm.commands.Alias
+import org.web3j.svm.commands.Current
+import org.web3j.svm.commands.Deactivate
+import org.web3j.svm.commands.Install
+import org.web3j.svm.commands.Ls
+import org.web3j.svm.commands.LsRemote
+import org.web3j.svm.commands.Setup
+import org.web3j.svm.commands.Unalias
+import org.web3j.svm.commands.Uninstall
+import org.web3j.svm.commands.Use
+import org.web3j.svm.settings.SettingsManager
 
 fun main(vararg args: String) {
     if (args.isEmpty()) {

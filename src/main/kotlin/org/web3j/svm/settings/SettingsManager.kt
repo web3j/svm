@@ -1,10 +1,10 @@
-package tech.richardson.svm.settings
+package org.web3j.svm.settings
 
 import java.io.File
 import java.nio.file.Paths
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
-import tech.richardson.svm.Constants
+import org.web3j.svm.Constants
 
 class SettingsManager {
     companion object {

@@ -1,6 +1,6 @@
-package tech.richardson.svm.commands
+package org.web3j.svm.commands
 
-import tech.richardson.svm.settings.Settings
+import org.web3j.svm.settings.Settings
 
 class Setup(private val settings: Settings) : Command {
 

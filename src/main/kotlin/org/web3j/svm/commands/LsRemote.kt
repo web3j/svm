@@ -1,4 +1,4 @@
-package tech.richardson.svm.commands
+package org.web3j.svm.commands
 
 import org.web3j.sokt.VersionResolver
 

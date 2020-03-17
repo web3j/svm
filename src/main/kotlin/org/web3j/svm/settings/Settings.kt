@@ -1,4 +1,4 @@
-package tech.richardson.svm.settings
+package org.web3j.svm.settings
 
 import kotlinx.serialization.Serializable
 

@@ -1,7 +1,7 @@
-package tech.richardson.svm.commands
+package org.web3j.svm.commands
 
 import java.io.File
-import tech.richardson.svm.Constants
+import org.web3j.svm.Constants
 
 class Deactivate : Command {
     override fun matches(arg: String, len: Int): Boolean {

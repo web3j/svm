@@ -1,8 +1,8 @@
-package tech.richardson.svm.commands
+package org.web3j.svm.commands
 
 import java.io.File
 import java.nio.file.Paths
-import tech.richardson.svm.Constants
+import org.web3j.svm.Constants
 
 class Ls : Command {
     override fun matches(arg: String, len: Int): Boolean {

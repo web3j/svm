@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'kotlinx-serialization'
 
 
-group 'tech.richardson'
+group 'org.web3j'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
-            'org.web3j:web3j-sokt:0.1.0',
+            'org.web3j:web3j-sokt:0.2.0-SNAPSHOT',
             "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0"
 }
 
@@ -47,7 +47,7 @@ jar {
                 }
     }
     manifest {
-        attributes 'Main-Class': 'tech.richardson.svm.MainKt'
+        attributes 'Main-Class': 'org.web3j.svm.MainKt'
     }
 }
 

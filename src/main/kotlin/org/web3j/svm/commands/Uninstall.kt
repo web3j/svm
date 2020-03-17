@@ -1,8 +1,8 @@
-package tech.richardson.svm.commands
+package org.web3j.svm.commands
 
 import org.web3j.sokt.SolcInstance
 import org.web3j.sokt.SolcRelease
-import tech.richardson.svm.Constants
+import org.web3j.svm.Constants
 
 class Uninstall : Command {
     override fun matches(arg: String, len: Int): Boolean {

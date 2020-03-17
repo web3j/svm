@@ -1,9 +1,9 @@
-package tech.richardson.svm.commands
+package org.web3j.svm.commands
 
 import org.web3j.sokt.SolcInstance
 import org.web3j.sokt.VersionResolver
-import tech.richardson.svm.Constants
-import tech.richardson.svm.settings.Settings
+import org.web3j.svm.Constants
+import org.web3j.svm.settings.Settings
 
 class Install(private val settings: Settings) : Command {
     override fun matches(arg: String, len: Int): Boolean {

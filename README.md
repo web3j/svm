@@ -1,4 +1,4 @@
-# svm [![Build Status](https://travis-ci.org/josh-richardson/svm.svg?branch=master)](https://travis-ci.org/josh-richardson/svm)
+# svm [![Build Status](https://travis-ci.org/web3j/svm.svg?branch=master)](https://travis-ci.org/web3j/svm)
 
 Solidity Version Manager inspired by nvm & jabba. Written in Kotlin & Java, but available with no dependencies as a native image thanks to GraalVM.
 
@@ -7,18 +7,18 @@ Allows for you to easily install & switch between different versions of the Soli
 ### Installation:
 Linux & macOS:
 ```bash
-curl -L https://github.com/josh-richardson/svm/raw/master/install.sh | bash && source ~/.svm/svm.sh
+curl -L https://github.com/web3j/svm/raw/master/install.sh | bash && source ~/.svm/svm.sh
 ```
 
 Windows:
 ```
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-Expression (
-  Invoke-WebRequest https://github.com/josh-richardson/svm/raw/master/install.ps1 -UseBasicParsing
+  Invoke-WebRequest https://github.com/web3j/svm/raw/master/install.ps1 -UseBasicParsing
 ).Content
 ```
 
-Note that on Windows, Java 11 is required as GraalVM cannot compile complex native images for Windows targets. The Powershell execution policy must also be set at such a level as to allow the powershell profile to execute successfully, and svm will not work in a vanilla command prompt (cmd.exe).
+Note that on Windows, Java 8 is required as GraalVM cannot compile complex native images for Windows targets. The Powershell execution policy must also be set at such a level as to allow the powershell profile to execute successfully, and svm will not work in a vanilla command prompt (cmd.exe).
 
 ### Executables
 Executables used by svm are downloaded using TLS, and are served directly from the Solidity Github [releases page](https://github.com/ethereum/solidity/releases) for Windows and Linux. Unfortunately native images are not supplied for macOS, so they are downloaded from [this repository](https://github.com/web3j/solidity-darwin-binaries/releases).
@@ -29,7 +29,7 @@ Executables used by svm are downloaded using TLS, and are served directly from t
 
 #### Available commands:
 ```
-Solidity Version Manager (https://github.com/josh-richardson/svm).
+Solidity Version Manager (https://github.com/web3j/svm).
 
 Usage:
   svm [command]
