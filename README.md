@@ -1,3 +1,7 @@
+# Archive Notice
+
+> This project is no longer under active development and has been archived. The repository is kept for historical purposes and read-only access. No further updates or pull requests will be considered.
+
 # svm [![Build Status](https://travis-ci.org/web3j/svm.svg?branch=master)](https://travis-ci.org/web3j/svm)
 
 Solidity Version Manager inspired by nvm & jabba. Written in Kotlin & Java, but available with no dependencies as a native image thanks to GraalVM.
